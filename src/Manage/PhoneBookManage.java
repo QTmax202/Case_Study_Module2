@@ -19,8 +19,13 @@ public class PhoneBookManage {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
             for (PhoneBook contact : contactList) {
-                bufferedWriter.write(contact.getPhoneNumber() + "," + contact.getGroup() + "," + contact.getName() + "," + contact.getGender() + ","
-                        + contact.getAddress() + "," + contact.getDateOfBirth() + "," + contact.getEmail() + "\n");
+                bufferedWriter.write(contact.getPhoneNumber() + "," +
+                        contact.getGroup() + "," +
+                        contact.getName() + "," +
+                        contact.getGender() + "," +
+                        contact.getAddress() + "," +
+                        contact.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+ "," +
+                        contact.getEmail() + "\n");
             }
             bufferedWriter.close();
             System.out.println("Write file successfully !");
@@ -37,7 +42,13 @@ public class PhoneBookManage {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] strings = line.split(",");
-                contacts.add(new PhoneBook(strings[0], strings[1], strings[2], strings[3], strings[4], LocalDate.parse(strings[5], DateTimeFormatter.ofPattern("dd/MM/yyyy")), strings[6]));
+                contacts.add(new PhoneBook(strings[0],
+                        strings[1],
+                        strings[2],
+                        strings[3],
+                        strings[4],
+                        LocalDate.parse(strings[5], DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        strings[6]));
             }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
@@ -61,7 +72,7 @@ public class PhoneBookManage {
         String genderCheck = "";
         int choice;
         do {
-            System.out.println("▹ Nhập giới tính:");
+            System.out.println("Nhập giới tính:");
             System.out.println("▹ 1. Male");
             System.out.println("▹ 2. Female");
             System.out.println("▹ 3. Orther");
@@ -84,11 +95,11 @@ public class PhoneBookManage {
     public String getPhoneNumber() {
         String phoneNumbercheck;
         while (true) {
-            System.out.print("Nhập số điện thoại: ");
+            System.out.println("Nhập số điện thoại: ");
             String phone = input.nextLine();
             if (!validate.validatePhone(phone)) {
                 System.out.println("Số điện thoại không hợp lệ !");
-                System.out.println("Số điện thoại phải có 10 số (0 - 9) định dạng: (+84)-12345678");
+//                System.out.println("Số điện thoại phải có 10 số (0 - 9) định dạng: (+84)-12345678");
                 System.out.println();
             } else {
                 phoneNumbercheck = phone;
@@ -101,11 +112,11 @@ public class PhoneBookManage {
     public String getEmail() {
         String emailCheck;
         while (true) {
-            System.out.print("▹ Nhập email: ");
+            System.out.println("Nhập email: ");
             String inputEmail = input.nextLine();
             if (!validate.validateEmail(inputEmail)) {
                 System.out.println("Email không hợp lệ !");
-                System.out.println("Email phải có dạng: abc.abc@yahoo.com/abc12.abc@gmail.vn/...");
+//                System.out.println("Email phải có dạng: abc.abc@yahoo.com/abc12.abc@gmail.vn/...");
                 System.out.println();
             } else {
                 emailCheck = inputEmail;
@@ -161,7 +172,7 @@ public class PhoneBookManage {
             }
         } else {
             System.out.println("Không tìm thấy danh bạ với số điện thoại trên !");
-            System.out.println("--------------------");
+            System.out.println();
         }
     }
 

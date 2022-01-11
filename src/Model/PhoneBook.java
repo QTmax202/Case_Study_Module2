@@ -83,13 +83,13 @@ public class PhoneBook {
 
     @Override
     public String toString() {
-        return String.format("phoneBook[ %-10s,%-10s,%-10s,%-10s,%-10s,%-10s,%-10s",
+        return String.format("phoneBook[ %-15s,%-15s,%-20s,%-15s,%-15s,%-15s,%-15s",
                 phoneNumber,
                 group,
                 name,
                 gender,
                 address,
                 dateOfBirth.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                email);
+                email)+" ]";
     }
 }

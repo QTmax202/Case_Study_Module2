@@ -41,7 +41,7 @@ public class RunSystem {
                         phoneBookManage.createPhoneBook();
                         break;
                     case 3:
-                        System.out.print("Nhập số điện thoại cần sửa (+84)-12345678: ");
+                        System.out.print("Nhập số điện thoại cần sửa: ");
                         String phoneEdit = scanner.nextLine();
                         if (phoneEdit.equals("")) {
                             runSystem();
@@ -50,7 +50,7 @@ public class RunSystem {
                         }
                         break;
                     case 4:
-                        System.out.print("Nhập số điện thoại cần sửa (+84)-12345678: ");
+                        System.out.print("Nhập số điện thoại cần xóa: ");
                         String phoneDelete = scanner.nextLine();
                         if (phoneDelete.equals("")) {
                             runSystem();
@@ -77,7 +77,6 @@ public class RunSystem {
                 }
             } while (true);
         } catch (NumberFormatException | DateTimeParseException e) {
-            System.out.println();
             System.out.println("Bạn nhập sai dữ liệu, mời nhập lại !");
             System.out.println();
             runSystem();
