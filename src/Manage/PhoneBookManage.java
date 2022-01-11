@@ -24,7 +24,7 @@ public class PhoneBookManage {
             }
             bufferedWriter.close();
             System.out.println("Write file successfully !");
-            System.out.println("--------------------");
+            System.out.println();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -123,10 +123,11 @@ public class PhoneBookManage {
         System.out.println("Nhập Họ tên:");
         String name = input.nextLine();
         String gender = getGender();
+        input.nextLine();
         System.out.println("Nhập địa chỉ:");
         String address = input.nextLine();
         System.out.println("Nhập ngày sinh(dd/mm/yyyy):");
-        LocalDate dateOfBirth = LocalDate.parse(input.nextLine(), DateTimeFormatter.ofPattern("(dd/MM/yyyy"));
+        LocalDate dateOfBirth = LocalDate.parse(input.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String email = getEmail();
         for (PhoneBook phone : phoneBooks) {
             if (phone.getPhoneNumber().equals(phoneNumber)) {
@@ -178,6 +179,7 @@ public class PhoneBookManage {
             System.out.println("Nhập Họ tên mới:");
             editContact.setName(input.nextLine());
             editContact.setGender(getGender());
+            input.nextLine();
             System.out.println("Nhập địa chỉ mới:");
             editContact.setAddress(input.nextLine());
             System.out.println("Nhập ngày sinh mới(dd/mm/yyyy):");
