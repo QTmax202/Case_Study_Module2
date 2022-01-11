@@ -65,7 +65,7 @@ public class RunSystem {
                         break;
                     case 6:
                         ArrayList<PhoneBook> phoneBooks = phoneBookManage.readFile(phoneBookManage.PATH_NAME);
-                        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n","", "Số điện thoại", "Nhóm", "Họ tên", "Giới tính", "Địa chỉ", "Ngày sinh" , "Email");
+//                        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n","", "Số điện thoại", "Nhóm", "Họ tên", "Giới tính", "Địa chỉ", "Ngày sinh" , "Email");
                         phoneBooks.forEach(System.out::println);
                         System.out.println();
                         break;

@@ -174,6 +174,7 @@ public class PhoneBookManage {
         }
         if (editContact != null) {
             int index = phoneBooks.indexOf(editContact);
+            input.nextLine();
             System.out.println("Nhập tên nhóm mới:");
             editContact.setGroup(input.nextLine());
             System.out.println("Nhập Họ tên mới:");
@@ -214,7 +215,7 @@ public class PhoneBookManage {
     }
 
     public void displayAll() {
-        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n","", "Số điện thoại", "Nhóm", "Họ tên", "Giới tính", "Địa chỉ", "Ngày sinh" , "Email");
+//        System.out.printf("%-12s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n","", "Số điện thoại", "Nhóm", "Họ tên", "Giới tính", "Địa chỉ", "Ngày sinh" , "Email");
         for (PhoneBook contact : phoneBooks) {
             System.out.println(contact);
         }
